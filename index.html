@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROLETA DOS PODS | Catálogo Oficial de Pods Descartáveis</title>
+  <meta name="description" content="Roleta dos Pods - Catálogo Oficial com os melhores pods descartáveis: Venum Punch 35K, Elf Bar Trio 40K, Ice King 40K e TE30K. Produtos 100% originais com pedidos via WhatsApp." />
+  
+  <!-- Fontes Google (Inter & Montserrat) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              emerald: '#10b981',
+              emeraldDark: '#059669',
+              gold: '#f59e0b',
+              dark: '#0a0c10',
+              card: '#12161f',
+              cardHover: '#18202c',
+              border: 'rgba(255, 255, 255, 0.08)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Estilos Customizados -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#0a0c10] text-gray-200 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- ========================================================
+       MODAL DE VERIFICAÇÃO DE IDADE (+18)
+       ======================================================== -->
+  <div id="ageModal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-2xl">
+    <div class="modal-content-box bg-[#0d1017] border border-emerald-500/30 rounded-3xl max-w-md w-full p-7 sm:p-9 text-center shadow-[0_0_50px_rgba(16,185,129,0.15)] relative overflow-hidden">
+      <!-- Glow superior interno -->
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-48 h-48 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <!-- Ícone com anel neon pulsante -->
+      <div class="relative w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+        <div class="absolute inset-0 rounded-full border border-amber-500/30 animate-ping opacity-30"></div>
+        <div class="w-16 h-16 bg-amber-500/10 border border-amber-500/40 text-amber-400 rounded-2xl flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(245,158,11,0.25)]">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+      </div>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-red-500/15 text-red-400 border border-red-500/30 mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse"></span>
+        Acesso Exclusivo +18
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl font-black font-display text-white mb-3 tracking-tight">
+        Verificação de Idade
+      </h2>
+
+      <p class="text-gray-400 text-xs sm:text-sm mb-7 leading-relaxed font-sans">
+        Este catálogo contém produtos para maiores de 18 anos, incluindo dispositivos eletrônicos de vaporização e pods descartáveis. Ao continuar, você declara ter maioridade legal.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button id="btnConfirmAge" class="flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm tracking-wide transition-all shadow-[0_0_25px_rgba(16,185,129,0.35)] hover:shadow-[0_0_35px_rgba(16,185,129,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0">
+          <i class="fa-solid fa-check text-xs"></i> Sim, tenho +18 anos
+        </button>
+        <button id="btnDenyAge" class="py-3 px-5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white font-medium transition text-xs border border-white/10">
+          Sou menor
+        </button>
+      </div>
+
+      <p class="text-[11px] text-gray-500 mt-5 uppercase tracking-wider font-semibold">
+        Conformidade com a legislação vigente
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       CABEÇALHO FIXO (HEADER & NAVBAR)
+       ======================================================== -->
+  <header class="sticky top-0 z-40 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo da Loja -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-emerald-900/40 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-dice text-lg"></i>
+          </div>
+          <div>
+            <span class="text-xl font-black tracking-wider font-display text-white group-hover:text-emerald-400 transition" id="brandTitle">
+              ROLETA<span class="text-emerald-500">.</span>PODS
+            </span>
+            <span class="block text-[10px] uppercase tracking-widest text-emerald-400 font-semibold -mt-1">
+              Pods Originais
+            </span>
+          </div>
+        </a>
+
+        <!-- Links de Navegação Desktop -->
+        <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+          <a href="#inicio" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition flex items-center gap-2">
+            <i class="fa-solid fa-house text-xs text-gray-500"></i> Início
+          </a>
+          <a href="#pods" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-emerald-400 hover:bg-white/5 transition flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-xs text-emerald-400"></i> Catálogo de Pods
+          </a>
+        </nav>
+
+        <!-- Botões de Ação Direita (Carrinho, Admin, WhatsApp) -->
+        <div class="hidden sm:flex items-center gap-3">
+          
+          <!-- Botão Painel / Cadastrar Produto -->
+          <button id="btnOpenAdmin" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white text-xs font-semibold border border-white/10 transition flex items-center gap-1.5" title="Gerenciar Catálogo">
+            <i class="fa-solid fa-sliders text-emerald-400"></i>
+            <span>Painel</span>
+          </button>
+
+          <!-- Botão Sacola / Carrinho com Contador -->
+          <button id="btnOpenCart" class="relative px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white text-xs font-semibold border border-white/10 transition flex items-center gap-2">
+            <i class="fa-solid fa-bag-shopping text-emerald-400 text-sm"></i>
+            <span>Sacola</span>
+            <span id="cartCountBadge" class="w-5 h-5 rounded-full bg-emerald-500 text-black font-extrabold text-[10px] flex items-center justify-center">
+              0
+            </span>
+          </button>
+
+          <!-- Botão WhatsApp Direto -->
+          <a id="btnNavWhatsapp" href="#" target="_blank" rel="noopener noreferrer" 
+             class="btn-glow inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-lg shadow-emerald-950/50 transition">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Botão Menu Mobile (Hambúrguer) -->
+        <div class="flex items-center gap-2 sm:hidden">
+          <button id="btnMobileCart" class="relative p-2.5 rounded-xl bg-white/5 border border-white/10 text-gray-300">
+            <i class="fa-solid fa-bag-shopping text-emerald-400"></i>
+            <span id="cartMobileCountBadge" class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 text-black font-extrabold text-[9px] flex items-center justify-center">0</span>
+          </button>
+          <button id="btnMobileToggle" class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:text-white" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars text-lg" id="menuIcon"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Gaveta Mobile -->
+      <div id="mobileMenu" class="hidden md:hidden border-t border-white/10 py-4 space-y-2">
+        <a href="#inicio" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 font-medium text-sm flex items-center gap-3">
+          <i class="fa-solid fa-house text-emerald-400 w-5"></i> Início
+        </a>
+        <a href="#pods" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 font-medium text-sm flex items-center gap-3">
+          <i class="fa-solid fa-bolt text-emerald-400 w-5"></i> Catálogo de Pods
+        </a>
+        <button id="btnMobileAdmin" class="w-full text-left px-4 py-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 font-medium text-sm flex items-center gap-3">
+          <i class="fa-solid fa-sliders text-emerald-400 w-5"></i> Painel / Adicionar Produto
+        </button>
+        <div class="pt-2">
+          <a id="btnMobileWhatsapp" href="#" target="_blank" rel="noopener noreferrer" 
+             class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/40">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Falar com Atendente
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       SEÇÃO HERO / BOAS-VINDAS FUTURISTA & PREMIUM
+       ======================================================== -->
+  <section id="inicio" class="relative overflow-hidden pt-10 pb-16 lg:py-24 border-b border-white/5 bg-[#0a0c10]">
+    
+    <!-- ========================================================
+         CENA VISUAL INTERATIVA 3D (FUNDO / PRODUTOS / FUMAÇA)
+         ======================================================== -->
+    <div id="heroInteractiveScene" class="hero-scene-container">
+      <!-- Canvas de Fumaça Suave, Névoa e Micropartículas -->
+      <canvas id="heroSmokeCanvas" class="hero-canvas"></canvas>
+
+      <!-- Palco 3D com Elementos Flutuantes da Loja -->
+      <div id="heroFloatingStage" class="hero-3d-stage">
+        
+        <!-- Luzes Volumétricas de Fundo -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[420px] h-[420px] bg-cyan-500/10 rounded-full blur-[130px] pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-[350px] h-[350px] bg-emerald-500/05 rounded-full blur-[110px] pointer-events-none"></div>
+
+        <!-- Camada Profunda: Anéis Orbitais Neon e Linhas Futuristas -->
+        <div data-depth="0.1" class="hero-parallax-layer absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+          <div class="w-[750px] h-[750px] rounded-full border border-emerald-500/20 border-dashed animate-[spin_120s_linear_infinite]"></div>
+          <div class="absolute w-[550px] h-[550px] rounded-full border border-cyan-500/15"></div>
+        </div>
+
+        <!-- Camada 1 (Profundidade 0.2): Pod Superior Esquerdo (Venum Punch 35K) -->
+        <div data-depth="0.2" class="hero-parallax-layer absolute top-12 left-4 sm:left-16 lg:left-24 pointer-events-none">
+          <div class="float-pod-left opacity-80 drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] filter brightness-95">
+            <div class="relative p-2.5 rounded-2xl bg-[#12161f]/50 border border-white/10 backdrop-blur-sm product-shine-effect">
+              <img 
+                src="imagens/venum-punch-35k-icy-mint.jpg" 
+                alt="Venum Punch 35K" 
+                class="w-20 sm:w-28 lg:w-36 h-auto rounded-xl object-contain select-none"
+              />
+              <span class="absolute -bottom-2 right-2 px-2 py-0.5 rounded-full text-[9px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                35.000 Puffs
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Camada 1 (Profundidade 0.25): Pod Inferior Direito (Ice King 40K) -->
+        <div data-depth="0.25" class="hero-parallax-layer absolute bottom-12 right-6 sm:right-16 lg:right-28 pointer-events-none">
+          <div class="float-pod-right opacity-80 drop-shadow-[0_25px_40px_rgba(0,0,0,0.9)] filter brightness-90">
+            <div class="relative p-2.5 rounded-2xl bg-[#12161f]/50 border border-white/10 backdrop-blur-sm product-shine-effect">
+              <img 
+                src="imagens/elfbar-ice-king-40k-double-apple-ice.jpg" 
+                alt="Elf Bar Ice King 40K" 
+                class="w-20 sm:w-28 lg:w-32 h-auto rounded-xl object-contain select-none"
+              />
+              <span class="absolute -top-2 left-2 px-2 py-0.5 rounded-full text-[9px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                Ice Control
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Camada 2 (Profundidade 0.35): Pod Destaque com Pedestal Holográfico (Elf Bar Trio 40K) -->
+        <div data-depth="0.35" class="hero-parallax-layer absolute top-1/2 -translate-y-1/2 right-2 sm:right-12 lg:right-36 hidden md:block pointer-events-none">
+          <div class="relative flex items-center justify-center">
+            <!-- Pedestal Holográfico Neon -->
+            <div class="holo-pedestal -bottom-8"></div>
+            <!-- Pod Destaque com Aura Luminosa -->
+            <div class="float-hero-element relative z-10 drop-shadow-[0_20px_45px_rgba(16,185,129,0.35)]">
+              <div class="relative product-shine-effect p-2 rounded-2xl bg-[#12161f]/60 border border-emerald-500/30">
+                <img 
+                  src="imagens/elfbar-trio-40k-sour-apple-ice.jpg" 
+                  alt="Elf Bar Trio 40K em Destaque" 
+                  class="w-32 sm:w-40 lg:w-48 h-auto rounded-xl object-contain select-none"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-emerald-500/10 via-transparent to-cyan-400/15 pointer-events-none rounded-xl"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Camada 3 (Profundidade 0.28): Pod Secundário Esquerdo (Elf Bar TE30K Metal Card) -->
+        <div data-depth="0.28" class="hero-parallax-layer absolute bottom-20 left-4 sm:left-12 lg:left-28 pointer-events-none">
+          <div class="float-pod-left opacity-80 drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] filter brightness-95">
+            <div class="relative p-2 rounded-2xl bg-[#12161f]/50 border border-white/10 backdrop-blur-sm product-shine-effect">
+              <img 
+                src="imagens/elfbar-te30k-watermelon-ice.jpg" 
+                alt="Elf Bar TE30K Metal Card" 
+                class="w-18 sm:w-24 lg:w-30 h-auto rounded-xl object-contain select-none"
+              />
+              <span class="absolute -top-2 right-2 px-2 py-0.5 rounded-full text-[9px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                Metal Card 30K
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================================================
+         CONTEÚDO PRINCIPAL HERO (PRIMEIRO PLANO COM ALTO CONTRASTE)
+         ======================================================== -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-4xl mx-auto mb-12">
+        
+        <!-- Cartão de Vidro Protetor de Contraste para Textos -->
+        <div class="hero-text-backdrop rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl relative">
+          
+          <!-- Badge Superior de Marketing Tecnológico -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full futuristic-badge text-emerald-400 text-xs font-bold uppercase tracking-wider mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulsing-dot"></span>
+            <span>Catálogo Oficial 2026 • Roleta dos Pods</span>
+          </div>
+
+          <!-- Título Principal de Alto Impacto -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-display tracking-tight text-white mb-6 leading-tight">
+            Os Melhores Pods Descartáveis na <br class="hidden sm:inline" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">Roleta dos Pods</span>
+          </h1>
+
+          <!-- Texto de Marketing Persuasivo -->
+          <p class="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto mb-8 font-normal">
+            Conheça as linhas <strong class="text-white font-bold">Venum Punch 35K</strong>, <strong class="text-white font-bold">Elf Bar Trio 40K</strong>, <strong class="text-white font-bold">Ice King 40K</strong> e <strong class="text-white font-bold">TE30K</strong>. Dispositivos 100% originais com telas digitais smart, regulagem de sabor e pronta entrega.
+          </p>
+
+          <!-- Botões de Ação Imediata (CTAs) -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <a href="#pods" class="btn-glow w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-black text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(16,185,129,0.4)] transition-all flex items-center justify-center gap-3">
+              <i class="fa-solid fa-bolt text-base"></i>
+              <span>Ver Catálogo de Pods</span>
+            </a>
+            <a href="#filtros" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white font-bold text-sm border border-white/10 hover:border-white/20 transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-magnifying-glass text-emerald-400"></i>
+              <span>Buscar Sabores</span>
+            </a>
+          </div>
+
+          <!-- Métricas de Confiança / Badges de Marketing Rápido -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-white/10 text-left">
+            <div class="p-3 rounded-xl bg-black/40 border border-white/5">
+              <span class="block text-emerald-400 font-black text-base sm:text-lg font-display">100%</span>
+              <span class="text-[11px] text-gray-400 font-medium leading-tight block">Originais & Lacrados</span>
+            </div>
+            <div class="p-3 rounded-xl bg-black/40 border border-white/5">
+              <span class="block text-cyan-400 font-black text-base sm:text-lg font-display">35K a 40K</span>
+              <span class="text-[11px] text-gray-400 font-medium leading-tight block">Puffs de Alta Autonomia</span>
+            </div>
+            <div class="p-3 rounded-xl bg-black/40 border border-white/5">
+              <span class="block text-teal-400 font-black text-base sm:text-lg font-display">Smart LED</span>
+              <span class="text-[11px] text-gray-400 font-medium leading-tight block">Bateria & E-Líquido</span>
+            </div>
+            <div class="p-3 rounded-xl bg-black/40 border border-white/5">
+              <span class="block text-amber-400 font-black text-base sm:text-lg font-display">VIP Concierge</span>
+              <span class="text-[11px] text-gray-400 font-medium leading-tight block">Suporte Direto WhatsApp</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Destaques das Linhas de Pods no Hero -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left mt-8">
+          
+          <!-- Card Linha Venum -->
+          <a href="#pods" class="neon-border-glow group relative p-5 rounded-2xl bg-[#12161f]/90 backdrop-blur-md transition-all duration-300 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 group-hover:bg-emerald-500/20 transition">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div>
+                <span class="text-[10px] text-emerald-400 block uppercase tracking-widest font-extrabold">35.000 PUFFS</span>
+                <span class="text-base font-black text-white group-hover:text-emerald-400 transition font-display">VENUM PUNCH</span>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-right text-gray-500 group-hover:text-emerald-400 group-hover:translate-x-1.5 transition"></i>
+          </a>
+
+          <!-- Card Linha Elf Bar Trio -->
+          <a href="#pods" class="neon-border-glow group relative p-5 rounded-2xl bg-[#12161f]/90 backdrop-blur-md transition-all duration-300 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 group-hover:bg-cyan-500/20 transition">
+                <i class="fa-solid fa-sliders"></i>
+              </div>
+              <div>
+                <span class="text-[10px] text-cyan-400 block uppercase tracking-widest font-extrabold">40.000 PUFFS</span>
+                <span class="text-base font-black text-white group-hover:text-cyan-400 transition font-display">ELF BAR TRIO</span>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-right text-gray-500 group-hover:text-cyan-400 group-hover:translate-x-1.5 transition"></i>
+          </a>
+
+          <!-- Card Linha Ice King & TE30K -->
+          <a href="#pods" class="neon-border-glow group relative p-5 rounded-2xl bg-[#12161f]/90 backdrop-blur-md transition-all duration-300 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center text-xl group-hover:scale-110 group-hover:bg-teal-500/20 transition">
+                <i class="fa-solid fa-snowflake"></i>
+              </div>
+              <div>
+                <span class="text-[10px] text-teal-400 block uppercase tracking-widest font-extrabold">30K / 40K PUFFS</span>
+                <span class="text-base font-black text-white group-hover:text-teal-400 transition font-display">ICE KING & TE30K</span>
+              </div>
+            </div>
+            <i class="fa-solid fa-arrow-right text-gray-500 group-hover:text-teal-400 group-hover:translate-x-1.5 transition"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- Diferenciais Rápidos Inferiores -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-white/5 text-center sm:text-left">
+        <div class="flex flex-col sm:flex-row items-center gap-3 p-3 rounded-xl hover:bg-white/[0.02] transition">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white">100% Originais</h4>
+            <p class="text-xs text-gray-400">Garantia de procedência</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-3 p-3 rounded-xl hover:bg-white/[0.02] transition">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white">Envio Imediato</h4>
+            <p class="text-xs text-gray-400">Embalagem segura e discreta</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-3 p-3 rounded-xl hover:bg-white/[0.02] transition">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white">Atendimento VIP</h4>
+            <p class="text-xs text-gray-400">Suporte pelo WhatsApp</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-3 p-3 rounded-xl hover:bg-white/[0.02] transition">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white">Marcas Líderes</h4>
+            <p class="text-xs text-gray-400">Venum & Elf Bar originais</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       BARRA DE BUSCA & FILTROS GLOBAIS (INTERATIVO)
+       ======================================================== -->
+  <section id="filtros" class="sticky top-20 z-30 bg-[#0a0c10]/95 backdrop-blur-md border-b border-white/10 py-4 shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+        
+        <!-- Campo de Pesquisa em Tempo Real -->
+        <div class="relative w-full lg:w-80">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+            <i class="fa-solid fa-magnifying-glass text-sm"></i>
+          </div>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Buscar sabor, modelo, marca..." 
+            class="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#12161f] border border-white/10 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 text-sm text-white placeholder-gray-400 outline-none transition"
+          />
+          <button id="btnClearSearch" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-gray-400 hover:text-white">
+            <i class="fa-solid fa-xmark text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Filtros Rápidos por Marca -->
+        <div class="flex items-center gap-1.5 overflow-x-auto w-full lg:w-auto pb-1 lg:pb-0 scrollbar-none">
+          <button data-brand-filter="all" class="brand-quick-btn active px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap bg-emerald-600 text-white">
+            <i class="fa-solid fa-boxes-stacked"></i> Todos os Pods
+          </button>
+          <button data-brand-filter="Venum" class="brand-quick-btn px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white border border-white/5">
+            <i class="fa-solid fa-bolt text-emerald-400"></i> Venum Punch (35K)
+          </button>
+          <button data-brand-filter="Elf Bar" class="brand-quick-btn px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white border border-white/5">
+            <i class="fa-solid fa-star text-cyan-400"></i> Elf Bar (30K/40K)
+          </button>
+        </div>
+
+        <!-- Filtro por Marca / Modelo -->
+        <div class="flex items-center gap-2 w-full lg:w-auto">
+          <label for="brandFilter" class="text-xs text-gray-400 whitespace-nowrap flex items-center gap-1">
+            <i class="fa-solid fa-filter text-gray-500"></i> Marca:
+          </label>
+          <select id="brandFilter" class="flex-1 lg:flex-none px-3 py-2 rounded-xl bg-[#12161f] border border-white/10 text-xs text-gray-200 outline-none focus:border-emerald-500 cursor-pointer">
+            <option value="all">Todas as Marcas</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Barra de Status do Filtro -->
+      <div id="filterStatus" class="hidden mt-3 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-gray-400">
+        <span id="filterCount">Exibindo 0 produtos</span>
+        <button id="btnResetFilters" class="text-emerald-400 hover:text-emerald-300 font-medium underline">
+          Limpar filtros
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       CONTEÚDO DO CATÁLOGO: SEÇÃO EXCLUSIVA DE PODS
+       ======================================================== -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 w-full">
+
+    <!-- CONTAINER DE RESULTADOS FILTRADOS (Exibido com busca ou filtro de marca) -->
+    <div id="searchResultsSection" class="hidden">
+      <div class="mb-8">
+        <h2 class="text-2xl font-black font-display text-white mb-1 flex items-center gap-3">
+          <i class="fa-solid fa-magnifying-glass text-emerald-400"></i>
+          Produtos Filtrados
+        </h2>
+        <p class="text-gray-400 text-sm" id="searchSummaryText">Produtos encontrados de acordo com seus critérios.</p>
+      </div>
+      <div id="search-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="searchNoResults" class="hidden py-16 text-center">
+        <i class="fa-solid fa-box-open text-4xl text-gray-600 mb-4 block"></i>
+        <h3 class="text-lg font-bold text-white mb-1">Nenhum pod encontrado</h3>
+        <p class="text-gray-400 text-sm">Tente limpar os filtros ou buscar por outro sabor.</p>
+      </div>
+    </div>
+
+    <!-- ====================================================
+         SEÇÃO EXCLUSIVA: PODS DESCARTÁVEIS
+         ==================================================== -->
+    <section id="pods" class="category-section scroll-mt-28">
+      
+      <!-- Banner Ilustrativo no Topo da Seção de Pods -->
+      <div class="category-hero-banner mb-10 h-64 sm:h-72 lg:h-80 flex items-center bg-gray-900">
+        <img 
+          src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80" 
+          alt="Banner Seção de Pods" 
+          class="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div class="relative z-10 p-6 sm:p-10 lg:p-14 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
+            <i class="fa-solid fa-bolt"></i> Catálogo Oficial • Roleta dos Pods
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black font-display text-white mb-2 leading-tight">
+            PODS DESCARTÁVEIS PREMIUM
+          </h2>
+          <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+            Dispositivos originais de alta autonomia, telas digitais smart e os sabores mais pedidos do mercado com tecnologia de ponta.
+          </p>
+        </div>
+      </div>
+
+      <!-- Grid de Cards de Pods -->
+      <div id="pods-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Renderizado via app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       MODAL DE DETALHES DO PRODUTO (COMPLETO)
+       ======================================================== -->
+  <div id="productDetailModal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+    <div class="modal-content-box bg-[#12161f] border border-white/10 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+      
+      <!-- Botão Fechar Modal -->
+      <button id="btnCloseDetailModal" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/60 hover:bg-black text-gray-300 hover:text-white flex items-center justify-center transition" aria-label="Fechar">
+        <i class="fa-solid fa-xmark text-base"></i>
+      </button>
+
+      <div class="p-6 sm:p-8">
+        <div class="flex flex-col sm:flex-row gap-6 items-start">
+          
+          <!-- Imagem Grande no Modal -->
+          <div class="w-full sm:w-1/2 rounded-xl overflow-hidden bg-black/60 border border-white/5 aspect-square relative flex items-center justify-center p-3">
+            <img id="modalProductImage" src="" alt="" class="w-full h-full object-contain rounded-lg" />
+            <span id="modalProductBadge" class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider"></span>
+          </div>
+
+          <!-- Informações Detalhadas -->
+          <div class="w-full sm:w-1/2 flex flex-col justify-between">
+            <div>
+              <span id="modalProductCategory" class="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-1"></span>
+              <h3 id="modalProductName" class="text-2xl font-black font-display text-white mb-1"></h3>
+              <p id="modalProductBrandModel" class="text-sm text-gray-400 mb-3"></p>
+              
+              <div class="text-2xl font-black text-emerald-400 mb-4" id="modalProductPrice"></div>
+
+              <!-- Atributos Chave -->
+              <div class="space-y-2 mb-4 text-xs">
+                <div class="flex justify-between py-1.5 border-b border-white/5">
+                  <span class="text-gray-400" id="modalVariationLabel">Variação / Sabor:</span>
+                  <span class="font-semibold text-white text-right" id="modalProductVariation"></span>
+                </div>
+                <div class="flex justify-between py-1.5 border-b border-white/5">
+                  <span class="text-gray-400" id="modalQuantityLabel">Autonomia / Unidades:</span>
+                  <span class="font-semibold text-white text-right" id="modalProductQuantity"></span>
+                </div>
+              </div>
+
+              <!-- Especificações em Badges -->
+              <div class="mb-4">
+                <span class="text-xs font-bold text-gray-400 block mb-2">Especificações Rápidas:</span>
+                <div id="modalProductSpecs" class="flex flex-wrap gap-1.5"></div>
+              </div>
+
+              <!-- Descrição Completa -->
+              <p id="modalProductDescription" class="text-xs text-gray-400 leading-relaxed mb-6"></p>
+            </div>
+
+            <!-- Botões de Ação no Modal -->
+            <div class="flex flex-col gap-2.5">
+              <button id="modalAddCartBtn" class="w-full py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs flex items-center justify-center gap-2 transition border border-white/10">
+                <i class="fa-solid fa-bag-shopping text-emerald-400"></i>
+                <span>Adicionar à Sacola</span>
+              </button>
+              <a id="modalWhatsappBtn" href="#" target="_blank" rel="noopener noreferrer" 
+                 class="btn-glow w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/50 transition">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Pedir no WhatsApp Agora</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SACOLA DE PEDIDOS (DRAWER LATERAL SLIDE-OVER)
+       ======================================================== -->
+  <div id="cartDrawerBackdrop" class="modal-backdrop fixed inset-0 z-50 bg-black/80 backdrop-blur-sm transition-opacity">
+    <div id="cartDrawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-[#12161f] border-l border-white/10 shadow-2xl flex flex-col z-50 transform translate-x-full transition-transform duration-300 ease-out">
+      
+      <!-- Cabeçalho da Sacola -->
+      <div class="p-5 border-b border-white/10 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <i class="fa-solid fa-bag-shopping text-emerald-400 text-lg"></i>
+          <h3 class="font-black font-display text-white text-lg">Minha Sacola de Pedidos</h3>
+        </div>
+        <button id="btnCloseCart" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white flex items-center justify-center transition">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Lista de Itens da Sacola -->
+      <div id="cartItemsList" class="flex-1 overflow-y-auto p-5 space-y-3">
+        <!-- Itens inseridos via JavaScript -->
+      </div>
+
+      <!-- Rodapé da Sacola -->
+      <div class="p-5 border-t border-white/10 bg-[#0a0c10]/50 space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-400">Total Estimado:</span>
+          <span id="cartTotalPrice" class="text-2xl font-black font-display text-emerald-400">R$ 0,00</span>
+        </div>
+        
+        <button id="btnCheckoutCart" class="btn-glow w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/60 transition">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Finalizar Pedido no WhatsApp</span>
+        </button>
+
+        <button id="btnClearCart" class="w-full text-center text-xs text-gray-500 hover:text-red-400 transition py-1">
+          Esvaziar sacola
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       PAINEL ADMINISTRATIVO: CADASTRAR PRODUTO & EXPORTAR
+       ======================================================== -->
+  <div id="adminModal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+    <div class="modal-content-box bg-[#12161f] border border-white/10 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative p-6 sm:p-8">
+      
+      <button id="btnCloseAdmin" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/60 hover:bg-black text-gray-300 hover:text-white flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="mb-6">
+        <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          Gerenciador de Catálogo
+        </span>
+        <h3 class="text-2xl font-black font-display text-white mt-2">Cadastrar Novo Produto</h3>
+        <p class="text-gray-400 text-xs">Adicione novos itens ao catálogo instantaneamente ou baixe o arquivo atualizado.</p>
+      </div>
+
+      <form id="newProductForm" class="space-y-4 text-xs">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-300 font-bold mb-1">Categoria *</label>
+            <select id="admCategory" required class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500">
+              <option value="pods">PODS DESCARTÁVEIS</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-gray-300 font-bold mb-1">Destaque / Badge</label>
+            <input type="text" id="admBadge" placeholder="Ex: Mais Vendido, Lançamento" class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-300 font-bold mb-1">Nome do Produto *</label>
+            <input type="text" id="admName" required placeholder="Ex: Venum Punch 35K — Icy Mint" class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500" />
+          </div>
+          <div>
+            <label class="block text-gray-300 font-bold mb-1">Marca *</label>
+            <input type="text" id="admBrand" required placeholder="Ex: Venum, Elf Bar" class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-gray-300 font-bold mb-1">Modelo</label>
+            <input type="text" id="admModel" placeholder="Ex: V80 Descartável" class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500" />
+          </div>
+          <div>
+            <label class="block text-gray-300 font-bold mb-1">Variação / Sabor *</label>
+            <input type="text" id="admVariation" required placeholder="Ex: Grape Ice" class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500" />
+          </div>
+          <div>
+            <label class="block text-gray-300 font-bold mb-1">Quantidade / Puffs *</label>
+            <input type="text" id="admQuantity" required placeholder="Ex: 8.000 Puffs" class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-300 font-bold mb-1">Preço (R$) *</label>
+            <input type="number" step="0.50" id="admPrice" required placeholder="Ex: 110.00" class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500" />
+          </div>
+          <div>
+            <label class="block text-gray-300 font-bold mb-1">URL da Foto</label>
+            <input type="url" id="admImage" placeholder="https://... ou imagens/foto.jpg" class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-gray-300 font-bold mb-1">Especificações (separadas por vírgula)</label>
+          <input type="text" id="admSpecs" placeholder="Ex: Bateria 650mAh, Type-C, Nic Salt 5%" class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500" />
+        </div>
+
+        <div>
+          <label class="block text-gray-300 font-bold mb-1">Descrição Completa</label>
+          <textarea id="admDescription" rows="3" placeholder="Detalhes sobre o funcionamento, acabamento e diferenciais do produto..." class="w-full px-3 py-2 rounded-xl bg-[#0a0c10] border border-white/10 text-white outline-none focus:border-emerald-500"></textarea>
+        </div>
+
+        <div class="pt-3 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+          <button type="submit" class="flex-1 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/50">
+            <i class="fa-solid fa-plus"></i> Salvar Produto no Catálogo
+          </button>
+          <button type="button" id="btnExportJs" class="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-gray-200 font-semibold text-xs transition flex items-center justify-center gap-2 border border-white/10">
+            <i class="fa-solid fa-download"></i> Baixar products.js Atualizado
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================
+       CONTAINER DE NOTIFICAÇÕES (TOAST)
+       ======================================================== -->
+  <div id="toastContainer" class="fixed bottom-6 left-6 z-50 space-y-2 pointer-events-none"></div>
+
+  <!-- ========================================================
+       BOTÕES FLUTUANTES (SACOLA & WHATSAPP)
+       ======================================================== -->
+  <aside class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+    
+    <!-- Botão Flutuante Sacola -->
+    <button id="floatingCartBtn" class="relative group flex items-center justify-center w-12 h-12 rounded-full bg-[#12161f] border border-white/15 text-white shadow-2xl hover:scale-110 transition" title="Abrir Sacola">
+      <i class="fa-solid fa-bag-shopping text-emerald-400 text-lg"></i>
+      <span id="floatingCartBadge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 text-black font-extrabold text-[10px] flex items-center justify-center">0</span>
+    </button>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a id="floatingWhatsapp" href="#" target="_blank" rel="noopener noreferrer" 
+       class="relative group flex items-center gap-3 py-3 px-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl shadow-emerald-950/80 transition-all duration-300 hover:scale-105" 
+       title="Falar no WhatsApp">
+      <span class="relative flex h-3 w-3">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+      </span>
+      <i class="fa-brands fa-whatsapp text-2xl"></i>
+      <span class="hidden sm:inline font-bold text-sm tracking-wide">Fale Conosco</span>
+    </a>
+  </aside>
+
+  <!-- ========================================================
+       RODAPÉ PROFISSIONAL (FOOTER)
+       ======================================================== -->
+  <footer class="border-t border-white/10 bg-[#08090d] pt-14 pb-8 text-gray-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <!-- Coluna 1: Sobre a Loja -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white font-black text-base shadow-lg shadow-emerald-900/40">
+              <i class="fa-solid fa-dice"></i>
+            </div>
+            <span class="text-lg font-black tracking-wider font-display text-white">
+              ROLETA<span class="text-emerald-500">.</span>PODS
+            </span>
+          </div>
+          <p class="text-gray-400 text-xs sm:text-sm max-w-md leading-relaxed">
+            Catálogo digital de referência especializado exclusivamente em pods descartáveis de alta autonomia e tecnologia avançada. Produtos 100% originais com pedidos via WhatsApp.
+          </p>
+          <div class="flex items-center gap-3 text-gray-400 pt-2">
+            <button id="btnFooterAdmin" class="text-xs text-gray-400 hover:text-emerald-400 transition flex items-center gap-1.5 py-1 px-2.5 rounded bg-white/5 border border-white/5">
+              <i class="fa-solid fa-sliders text-emerald-400"></i> Painel do Administrador
+            </button>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação Rápida -->
+        <div>
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Navegação</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#inicio" class="hover:text-emerald-400 transition">Página Inicial</a></li>
+            <li><a href="#pods" class="hover:text-emerald-400 transition">Catálogo de Pods</a></li>
+            <li><a href="#filtros" class="hover:text-emerald-400 transition">Buscar Sabores</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Atendimento -->
+        <div>
+          <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Atendimento</h4>
+          <p class="text-xs text-gray-400 leading-relaxed mb-3">
+            Tire dúvidas sobre sabores, disponibilidade e envio diretamente com nossa equipe.
+          </p>
+          <a id="btnFooterWhatsapp" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-emerald-400 hover:text-emerald-300">
+            <i class="fa-brands fa-whatsapp"></i> Iniciar Atendimento
+          </a>
+        </div>
+      </div>
+
+      <!-- Aviso Legal Obrigatório (+18) -->
+      <div class="p-4 rounded-xl bg-red-950/20 border border-red-900/30 text-red-300/80 text-xs text-center mb-8">
+        <i class="fa-solid fa-triangle-exclamation mr-1.5 text-red-400"></i>
+        <strong>AVISO LEGAL:</strong> A venda de produtos fumígenos e dispositivos eletrônicos para fumar é proibida para menores de 18 anos (Lei Federal nº 8.069/1990 e 9.294/1996). Fumar é prejudicial à saúde.
+      </div>
+
+      <!-- Linha Final de Copyright -->
+      <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500 text-center sm:text-left">
+        <div>
+          &copy; 2026 <span id="footerBrandName">ROLETA DOS PODS</span> - Todos os direitos reservados.
+        </div>
+        <div>
+          Catálogo oficial de pods descartáveis.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
